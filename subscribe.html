@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe to Unlock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .modal {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: fadeIn 1s;
+            max-width: 400px;
+            width: 100%;
+        }
+        .modal h2 {
+            margin-bottom: 20px;
+        }
+        .modal button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        .modal button:hover {
+            background: #0056b3;
+        }
+        .hidden {
+            display: none;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        /* Styles for the download link */
+        #download-link {
+            margin-top: 20px;
+        }
+        #download-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #download-button:hover {
+            background-color: #45a049;
+        }
+        /* Animation for download button */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        #download-button.animated {
+            animation: pulse 1.5s infinite;
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <!-- Subscription page -->
+    <div id="subscribe-page" class="modal">
+        <h2>Subscribe to Unlock</h2>
+        <button onclick="unlockDownload()">Unlock</button>
+    </div>
+
+    <!-- Hidden download button -->
+    <div id="download-link" class="hidden modal">
+        <h2>Your download is ready</h2>
+        <a id="download-button" href="#" target="_blank">Download Now</a>
+    </div>
+
+    <script>
+        function unlockDownload() {
+            // Redirect to the custom YouTube link
+            const youtubeLink = 'https://www.highrevenuenetwork.com/z4s6t2b1sd?key=27782a0d4054840e46060f8d52903dc0';
+            window.open(youtubeLink, '_blank');
+
+            // Retrieve the custom download link from localStorage
+            const customDownloadLink = localStorage.getItem('customDownloadLink');
+            document.getElementById('download-button').href = customDownloadLink;
+
+            document.getElementById('subscribe-page').classList.add('hidden');
+            document.getElementById('download-link').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
